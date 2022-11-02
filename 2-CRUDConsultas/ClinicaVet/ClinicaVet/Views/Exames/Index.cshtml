@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Modelos.Procedimentos.Exame>
+
+@{
+    Layout = null;
+    ViewBag.Title = "LISTAGEM DE EXAMES";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <h1>@ViewBag.Title</h1>
+    @Html.ActionLink("Ver Listagem de Consultas", "Index", "Consultas")
+    <p>
+        @Html.ActionLink("Adicionar Novo Exame", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ExameId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                Data da Consulta
+            </th>
+
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExameId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Consulta.ConsultaData)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id=item.ExameId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.ExameId }) |
+                @Html.ActionLink("Excluir", "Delete", new { id=item.ExameId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
