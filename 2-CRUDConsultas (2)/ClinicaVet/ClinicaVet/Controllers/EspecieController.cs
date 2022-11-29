@@ -5,7 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using Modelos.Animal;
 using Servico.Animal;
-using Persistencia.DAL.Animal
+using Persistencia.DAL.Animal;
+using Modelos.Pets;
+using System.Net;
 
 namespace ClinicaVet.Controllers
 {
@@ -47,7 +49,7 @@ namespace ClinicaVet.Controllers
         // GET: Fabricantes
         public ActionResult Index()
         {
-            return View(especiesServico.ObterEspeciesClassificadasPorData());
+            return View(especiesServico.ObterEspeciesClassificadasPorNome());
         }
 
         // GET: Create
@@ -94,7 +96,7 @@ namespace ClinicaVet.Controllers
             try
             {
                 Especie especie = especiesServico.EliminarEspeciePorId(id);
-                TempData["Message"] = "Especie do dia " + especie.EspecieData + " foi removida";
+                TempData["Message"] = "Especie " + especie.Nome + " foi removida";
                 return RedirectToAction("Index");
             }
             catch

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Modelos.Animal;
+using Persistencia.Contexts;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -10,12 +13,17 @@ namespace Persistencia.DAL.Animal
         private EFContext context = new EFContext();
         public IQueryable<Especie> ObterEspeciesClassificadosPorNome()
         {
-            return context.Especies.Include(c => c.Consulta).OrderBy(b => b.Nome);
+            return context.Especies.OrderBy(b => b.Nome);
         }
 
         public Especie ObterEspeciePorId(long id)
         {
-            return context.Especies.Where(p => p.EspecieId == id).Include(c => c.Consulta).First();
+            return context.Especies.Where(p => p.EspecieId == id).First();
+        }
+
+        public static void GravarPet(Pet pet)
+        {
+            throw new NotImplementedException();
         }
 
         public void GravarEspecie(Especie especie)

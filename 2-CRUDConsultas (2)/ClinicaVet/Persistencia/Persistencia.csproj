@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexts\EFContext.cs" />
+    <Compile Include="DAL\Animal\PetDAL.cs" />
     <Compile Include="DAL\Animal\EspecieDAL.cs" />
     <Compile Include="DAL\Consultas\ConsultasDAL.cs" />
     <Compile Include="DAL\Consultas\ExamesDAL.cs" />

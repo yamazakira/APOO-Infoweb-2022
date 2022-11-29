@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Modelos.Pets;
+using Persistencia.DAL.Animal;
 
 namespace Servico.Animal
 {
     public class EspeciesServico
     {
-        private EspeciesDAL EspecieDAL = new EspeciesDAL();
-        public IQueryable<Especie> ObterEspeciesClassificadasPorData()
+        private PetDAL EspecieDAL = new PetDAL();
+        public IQueryable<Especie> ObterEspeciesClassificadasPorNome()
         {
-            return EspecieDAL.ObterEspeciesClassificadasPorData();
+            return EspecieDAL.ObterEspeciesClassificadosPorNome();
         }
 
         public Especie ObterEspeciePorId(long id)

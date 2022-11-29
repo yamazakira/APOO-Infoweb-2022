@@ -17,6 +17,6 @@ namespace Modelos.Procedimentos
         [DisplayName("Data da Consulta")]
         [Required(ErrorMessage = "Informe a data de cadastro do produto")]
         public DateTime? ConsultaData { get; set; }
-        public virtual ICollection<Exame> Exames { get; set; }
+        //public virtual ICollection<Exame> Exames { get; set; }
     }
 }

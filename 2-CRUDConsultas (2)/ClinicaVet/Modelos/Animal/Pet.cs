@@ -4,16 +4,18 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using Modelos.Pets;
 
 namespace Modelos.Animal
 {
     public class Pet
     {
         [Required]
-        private long PetId { get; set; }
+        public long PetId { get; set; }
 
-        private string Nome { get; set; }
+        public string Nome { get; set; }
 
-        private int Idade { get; set; }
+        public int Idade { get; set; }
+        public Especie Especie { get; set; }
     }
 }
