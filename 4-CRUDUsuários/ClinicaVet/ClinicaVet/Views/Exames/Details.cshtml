@@ -1,0 +1,50 @@
+﻿@model Modelos.Procedimentos.Exame
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Exame</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ExameId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ExameId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ConsultaId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ConsultaId)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.ExameId }) |
+        @Html.ActionLink("Voltar à Lista", "Index")
+    </p>
+</body>
+</html>

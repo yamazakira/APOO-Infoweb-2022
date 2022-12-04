@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Modelos.Procedimentos.Consulta>
+
+@{
+    Layout = null;
+    ViewBag.Title = "LISTAGEM DE CONSULTAS";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <h1>@ViewBag.Title</h1>
+    @Html.ActionLink("Ver Listagem de Exames", "Index", "Exames")
+    <p>
+        @Html.ActionLink("Adicionar Nova Consulta", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sintomas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConsultaData)
+            </th>
+            <th>Nome Vet</th>
+            <th>crmv vet</th>
+            <th>cpf cliente</th>
+            <th>pet</th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sintomas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConsultaData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Veterinario.UsuarioId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VeterinarioId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pet.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id=item.ConsultaId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.ConsultaId }) |
+                @Html.ActionLink("Excluir", "Delete", new { id=item.ConsultaId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

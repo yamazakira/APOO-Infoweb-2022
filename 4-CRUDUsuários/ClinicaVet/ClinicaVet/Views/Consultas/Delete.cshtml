@@ -1,0 +1,71 @@
+﻿@model Modelos.Procedimentos.Consulta
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Está certo de que deseja excluir esta consulta?</h3>
+    <div>
+        <h4>Consulta</h4>
+        <hr />
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Sintomas)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Sintomas)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ConsultaData)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ConsultaData)
+            </dd>
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.VeterinarioId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Veterinario.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ClienteId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ClienteId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PetId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PetId)
+            </dd>
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div>
+                <input type="submit" value="Excluir"/> |
+                @Html.ActionLink("Voltar à Lista", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>
