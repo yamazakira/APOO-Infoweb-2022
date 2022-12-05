@@ -13,19 +13,22 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <button type="button" class="btn btn-outline-info">
+    <button type="button" class="btn btn-outline-primary">
         @Html.ActionLink("Adicionar Exame", "Create")
     </button>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ExameId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
                 Data da Consulta
+            </th>
+            <th>
+                CRMV - Veterinário
+            </th>
+            <th>
+                Pet
             </th>
 
             <th></th>
@@ -34,13 +37,16 @@
     @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ExameId)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Consulta.ConsultaData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VeterinarioId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pet.Nome)
             </td>
             <td>
                 @Html.ActionLink("Editar", "Edit", new { id=item.ExameId }) |

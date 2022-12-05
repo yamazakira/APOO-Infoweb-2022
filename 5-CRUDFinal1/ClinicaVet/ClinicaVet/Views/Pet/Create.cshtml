@@ -41,6 +41,7 @@
                     @Html.ValidationMessageFor(model => model.Idade, "", new { @class = "" })
                 </div>
             </div>
+
             <div>
                 @Html.LabelFor(model => model.EspecieId, htmlAttributes: new { @class = "" })
                 <div>
@@ -48,6 +49,7 @@
                     @Html.ValidationMessageFor(model => model.EspecieId, "", new { @class = "" })
                 </div>
             </div>
+
             <div>
                 @Html.LabelFor(model => model.ClienteId,"Dono CPF", htmlAttributes: new { @class = "" })
                 <div>
@@ -55,16 +57,25 @@
                     @Html.ValidationMessageFor(model => model.ClienteId, "", new { @class = "" })
                 </div>
             </div>
+
+            <div class="">
+                @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EnumDropDownListFor(model => model.Sexo, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "" })
+                </div>
+             </div>
+
             <div class="">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="" />
+                    <input type="submit" value="Criar" class="btn btn-success" />
                 </div>
             </div>
         </div>
     }
     
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Voltar à Lista", "Index")
     </div>
 </body>
 </html>

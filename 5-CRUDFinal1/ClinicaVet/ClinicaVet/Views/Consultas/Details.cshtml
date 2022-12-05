@@ -53,12 +53,12 @@
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.PetId)
+                @Html.DisplayFor(model => model.Pet.Nome)
             </dd>
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Editar", "Edit", new { id = Model.ConsultaId }) |
+        <span class="btn btn-info">@Html.ActionLink("Editar", "Edit", new { id = Model.ConsultaId })</span> |
         @Html.ActionLink("Voltar à Lista", "Index")
     </p>
 </body>

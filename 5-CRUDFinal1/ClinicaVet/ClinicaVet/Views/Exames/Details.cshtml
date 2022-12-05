@@ -39,11 +39,27 @@
             <dd>
                 @Html.DisplayFor(model => model.ConsultaId)
             </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.VeterinarioId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VeterinarioId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PetId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Pet.Nome)
+            </dd>
     
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Editar", "Edit", new { id = Model.ExameId }) |
+        <span class="btn btn-info">@Html.ActionLink("Editar", "Edit", new { id = Model.ExameId })</span> |
         @Html.ActionLink("Voltar à Lista", "Index")
     </p>
 </body>

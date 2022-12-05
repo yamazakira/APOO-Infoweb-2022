@@ -47,10 +47,26 @@
                     @Html.ValidationMessageFor(model => model.ConsultaId, "", new { @class = "" })
                 </div>
             </div>
+
+            <div>
+                @Html.LabelFor(model => model.VeterinarioId, "Veterinario crmv", htmlAttributes: new { @class = "" })
+                <div>
+                    @Html.DropDownList("VeterinarioId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.VeterinarioId, "", new { @class = "" })
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.PetId, "Nome do Pet", htmlAttributes: new { @class = "" })
+                <div>
+                    @Html.DropDownList("PetId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.PetId, "", new { @class = "" })
+                </div>
+            </div>
     
             <div>
                 <div>
-                    <input type="submit" value="Criar"/>
+                    <input type="submit" value="Criar" class="btn btn-success" />
                 </div>
             </div>
         </div>

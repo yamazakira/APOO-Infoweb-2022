@@ -13,7 +13,7 @@
     <title>Index</title>
 </head>
 <body>
-    <button type="button" class="btn btn-outline-info">
+    <button type="button" class="btn btn-outline-primary">
         @Html.ActionLink("Adicionar Pet", "Create")
     </button>
     <table class="table">
@@ -26,6 +26,9 @@
             </th>
             <th>
                 Espécie
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
             </th>
             <th>
                 Dono - CPF
@@ -48,15 +51,18 @@
                 @Html.DisplayFor(modelItem => item.Especie.Nome)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.ClienteId)
             </td>
             @* <td>
                 @Html.DisplayFor(modelItem => item.Cliente.Nome)
             </td> *@
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.PetId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.PetId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.PetId })
+                @Html.ActionLink("Editar", "Edit", new { id=item.PetId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.PetId }) |
+                @Html.ActionLink("Excluir", "Delete", new { id=item.PetId })
             </td>
         </tr>
     }

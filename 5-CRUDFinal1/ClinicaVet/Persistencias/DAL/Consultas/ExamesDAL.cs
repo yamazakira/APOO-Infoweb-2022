@@ -13,12 +13,12 @@ namespace Persistencia.DAL.Consultas
         private EFContext context = new EFContext();
         public IQueryable<Exame> ObterExamesClassificadosPorNome()
         {
-            return context.Exames.Include(c => c.Consulta).OrderBy(b => b.Nome);
+            return context.Exames.Include(c => c.Consulta).Include(c => c.Pet).Include(c => c.Veterinario).OrderBy(b => b.Nome);
         }
 
         public Exame ObterExamePorId(long id)
         {
-            return context.Exames.Where(p => p.ExameId == id).Include(c => c.Consulta).First();
+            return context.Exames.Where(p => p.ExameId == id).Include(c => c.Consulta).Include(c => c.Pet).Include(c => c.Veterinario).First();
         }
 
         public void GravarExame(Exame exame)

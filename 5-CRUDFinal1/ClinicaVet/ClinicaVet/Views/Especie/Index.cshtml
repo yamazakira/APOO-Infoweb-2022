@@ -13,7 +13,7 @@
     <title>Index</title>
 </head>
 <body>
-    <button type="button" class="btn btn-outline-info">
+    <button type="button" class="btn btn-outline-primary">
         @Html.ActionLink("Adicionar Espécie", "Create")
     </button>
     <table class="table">
@@ -30,9 +30,9 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.EspecieId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.EspecieId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.EspecieId })
+                @Html.ActionLink("Editar", "Edit", new { id=item.EspecieId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.EspecieId }) |
+                @Html.ActionLink("Excluir", "Delete", new { id=item.EspecieId })
             </td>
         </tr>
     }
