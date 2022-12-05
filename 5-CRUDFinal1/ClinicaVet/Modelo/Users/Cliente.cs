@@ -11,6 +11,6 @@ namespace Modelos.Users
     public class Cliente : Usuario
     {
         [Required]
-        public string cpf { get; set; }
+        public long? cpf { get; set; }
     }
 }

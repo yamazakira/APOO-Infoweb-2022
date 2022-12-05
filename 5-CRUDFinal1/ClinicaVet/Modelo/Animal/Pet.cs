@@ -18,11 +18,12 @@ namespace Modelos.Animal
 
         public int Idade { get; set; }
 
-        //public TipoSexo Sexo { get; set; }
-        //public enum TipoSexo
-        //{
-        //    FEM, MASC
-        //}
+        public TipoSexo Sexo { get; set; }
+        public enum TipoSexo
+        {
+            Feminino,
+            Masculino
+        }
 
         // Especie
         public long? EspecieId { get; set; }

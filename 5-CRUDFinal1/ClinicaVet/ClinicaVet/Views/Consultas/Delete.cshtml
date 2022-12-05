@@ -38,7 +38,7 @@
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.Veterinario.Nome)
+                @Html.DisplayFor(model => model.VeterinarioId)
             </dd>
 
             <dt>
@@ -62,7 +62,7 @@
             @Html.AntiForgeryToken()
     
             <div>
-                <input type="submit" value="Excluir"/> |
+                <input type="submit" value="Excluir" class="btn btn-danger"/> |
                 @Html.ActionLink("Voltar à Lista", "Index")
             </div>
         }

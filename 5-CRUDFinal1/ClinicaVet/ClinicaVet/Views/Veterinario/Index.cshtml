@@ -13,7 +13,7 @@
     <title>Index</title>
 </head>
 <body>
-    <button type="button" class="btn btn-outline-info">
+    <button type="button" class="btn btn-outline-primary">
         @Html.ActionLink("Adicionar Veterinário", "Create")
     </button>
     <table class="table">
@@ -48,9 +48,9 @@
                 @Html.DisplayFor(modelItem => item.crmv)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.UsuarioId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.UsuarioId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.UsuarioId })
+                @Html.ActionLink("Editar", "Edit", new { id=item.UsuarioId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.UsuarioId }) |
+                @Html.ActionLink("Excluir", "Delete", new { id=item.UsuarioId })
             </td>
         </tr>
     }

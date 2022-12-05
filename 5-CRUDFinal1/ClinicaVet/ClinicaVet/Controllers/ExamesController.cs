@@ -5,6 +5,8 @@ using Modelos.Procedimentos;
 using Persistencia.Contexts;
 using System.Linq;
 using System.Data.Entity;
+using Servico.Users;
+using Servico.Animal;
 
 namespace ClinicaVet.Controllers
 {
@@ -14,6 +16,8 @@ namespace ClinicaVet.Controllers
 
         private ExamesServico examesServico = new ExamesServico();
         private ConsultasServico consultaServico = new ConsultasServico();
+        private VeterinarioServico vetsServico = new VeterinarioServico();
+        private PetsServico petsServico = new PetsServico();
 
 
         // GET: Exames
@@ -108,11 +112,19 @@ namespace ClinicaVet.Controllers
             {
                 ViewBag.ConsultaId = new SelectList(consultaServico.ObterConsultasClassificadasPorData(),
                 "ConsultaId", "ConsultaData");
+                ViewBag.VeterinarioId = new SelectList(vetsServico.ObterVetsClassificadosPorCrmv(),
+                "crmv", "crmv");
+                ViewBag.PetId = new SelectList(petsServico.ObterPetsClassificadasPorNome(),
+                "PetId", "Nome");
             }
             else
             {
                 ViewBag.ConsultaId = new SelectList(consultaServico.ObterConsultasClassificadasPorData(),
                 "ConsultaId", "ConsultaData", exame.ConsultaId);
+                ViewBag.VeterinarioId = new SelectList(vetsServico.ObterVetsClassificadosPorCrmv(),
+                "crmv", "crmv", exame.VeterinarioId);
+                ViewBag.PetId = new SelectList(petsServico.ObterPetsClassificadasPorNome(),
+                "PetId", "Nome", exame.PetId);
             }
         }
 
