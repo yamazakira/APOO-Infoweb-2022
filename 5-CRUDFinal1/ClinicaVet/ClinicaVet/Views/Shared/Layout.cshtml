@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+          charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/content/bootstrap.css")" rel="stylesheet" />
+    @RenderSection("styles", false)
+</head>
+<body>
+    <div>
+        <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom py-3 mb-3">
+           <h1 class="fs-4">APOO-VETERINÁRIOS</h1>
+          <ul class="nav nav-pills">
+            <li class="nav-item nav-link">@Html.ActionLink("Especies", "Index", "Especie")</li>
+            <li class="nav-item nav-link">@Html.ActionLink("Pets", "Index", "Pet")</li>
+            <li class="nav-item nav-link">@Html.ActionLink("Consultas", "Index", "Consultas")</li>
+            <li class="nav-item nav-link">@Html.ActionLink("Exames", "Index", "Exames")</li>
+            <li class="nav-item nav-link">@Html.ActionLink("Clientes", "Index", "Cliente")</li>
+            <li class="nav-item nav-link">@Html.ActionLink("Veterinário", "Index", "Veterinario")</li>
+          </ul>
+        </header>
+            <h1>@ViewBag.Title</h1>
+            <div class="justify-content-center flex-wrap">
+             @RenderBody()
+            </div>
+        </div>   
+    </div>    
+</body>
+</html>

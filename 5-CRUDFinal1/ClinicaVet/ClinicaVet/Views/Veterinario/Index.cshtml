@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Modelos.Users.Veterinario>
+
+@{
+    Layout =  "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "LISTAGEM DE VETERINÁRIOS";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <button type="button" class="btn btn-outline-info">
+        @Html.ActionLink("Adicionar Veterinário", "Create")
+    </button>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Senha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.crmv)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Senha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.crmv)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.UsuarioId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.UsuarioId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.UsuarioId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

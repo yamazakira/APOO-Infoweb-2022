@@ -1,0 +1,63 @@
+﻿@model Modelos.Procedimentos.Exame
+
+@{
+    Layout =  "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "Novo Exame";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        
+        <div>
+            @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Count() > 0))
+            {
+                <div>
+                    @Html.ValidationSummary(true, "Verifique os seguintes erros",
+                    new { @class = "" })
+                </div>
+            }
+            <h4>Exame</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "" })
+            <div>
+                @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "" })
+                <div>
+                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "" } })
+                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "" })
+                </div>
+            </div>
+    
+            <div>
+                @Html.LabelFor(model => model.ConsultaId, "ConsultaId", htmlAttributes: new { @class = "" })
+                <div>
+                    @Html.DropDownList("ConsultaId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.ConsultaId, "", new { @class = "" })
+                </div>
+            </div>
+    
+            <div>
+                <div>
+                    <input type="submit" value="Criar"/>
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Voltar à Lista", "Index")
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿@model Modelos.Procedimentos.Consulta
+
+@{
+    Layout =  "~/Views/Shared/Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        
+        <div>
+            <h4>Consulta</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "" })
+            <div>
+                @Html.LabelFor(model => model.Sintomas, htmlAttributes: new { @class = "" })
+                <div>
+                    @Html.EditorFor(model => model.Sintomas, new { htmlAttributes = new { @class = "" } })
+                    @Html.ValidationMessageFor(model => model.Sintomas, "", new { @class = "" })
+                </div>
+            </div>
+    
+            <div>
+                @Html.LabelFor(model => model.ConsultaData, htmlAttributes: new { @class = "" })
+                <div>
+                    @Html.EditorFor(model => model.ConsultaData, new { htmlAttributes = new { @class = "" } })
+                    @Html.ValidationMessageFor(model => model.ConsultaData, "", new { @class = "" })
+                </div>
+            </div>
+            
+            <div>
+                @Html.LabelFor(model => model.VeterinarioId, "Veterinario crmv", htmlAttributes: new { @class = "" })
+                <div>
+                    @Html.DropDownList("VeterinarioId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.VeterinarioId, "", new { @class = "" })
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.ClienteId, "Cliente cpf", htmlAttributes: new { @class = "" })
+                <div>
+                    @Html.DropDownList("ClienteId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.ClienteId, "", new { @class = "" })
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.PetId, "Nome do Pet", htmlAttributes: new { @class = "" })
+                <div>
+                    @Html.DropDownList("PetId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.PetId, "", new { @class = "" })
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <input type="submit" value="Criar"/>
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

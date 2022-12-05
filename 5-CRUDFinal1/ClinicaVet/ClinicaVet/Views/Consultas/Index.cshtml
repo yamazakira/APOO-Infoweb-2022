@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Modelos.Procedimentos.Consulta>
+
+@{
+    Layout =  "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "LISTAGEM DE CONSULTAS";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <button type="button" class="btn btn-outline-info">
+        @Html.ActionLink("Adicionar Consulta", "Create")
+    </button>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sintomas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConsultaData)
+            </th>
+            @* <th>Nome Vet</th> *@
+            <th>CRMV - Veterinário</th>
+            <th>CPF - Cliente</th>
+            <th>Pet</th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sintomas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConsultaData)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Veterinario.UsuarioId)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.VeterinarioId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pet.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id=item.ConsultaId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.ConsultaId }) |
+                @Html.ActionLink("Excluir", "Delete", new { id=item.ConsultaId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
